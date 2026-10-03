@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Профіль ліда: Олександр Коваленко</h2>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+            <p><strong>Email:</strong>{{ lead.user.email }}</p>
+            <p><strong>Телефон:</strong>{{ lead.numder }}</p>
+            <p><strong>Джерело:</strong>{{ lead.user.get_full_name}}</p>
+        </div>
+        <div>
+            <p><strong>Дата створення:</strong>{{ lead.created }}</p>
+            <p><strong>Статус:</strong> Новий</p>
+            <p><strong>Коментар:</strong> Цікавиться розробкою сайту.</p>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn btn-primary">Редагувати</button>
+        <button class="btn btn-outline" style="color: red; border-color: red;">Видалити</button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Всі Ліди</h2>
+        <button class="btn btn-primary">+ Додати ліда</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Email</th>
+                <th>Статус</th>
+                <th>Менеджер</th>
+                <th>Дія</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lead in leads %}
+            <tr>
+                <td>{{ lead.user.get_full_name }}</td>
+                <td>{{ lead.user.email }}</td>
+                <td>{{ lead.numder }}</td>
+                <td><a href="{% url 'crm:leads_url' lead.id %}" class="btn btn-outline">Переглянути</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}}
